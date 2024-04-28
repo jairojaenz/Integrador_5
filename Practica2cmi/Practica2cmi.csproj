@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -160,9 +163,6 @@
     <Reference Include="Microsoft.Owin.Security.OAuth">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.2.2\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
@@ -171,19 +171,62 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CMIsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicadoresController.cs" />
+    <Compile Include="Controllers\Indicador_DatosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MetasController.cs" />
+    <Compile Include="Controllers\ObjetivosController.cs" />
+    <Compile Include="Controllers\PerspectivasController.cs" />
+    <Compile Include="Controllers\TiposController.cs" />
     <Compile Include="Controllers\userController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\CMI.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMIModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMIModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMIModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMIModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Indicador.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Indicador_Datos.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meta.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\Model1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Model1.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Objetivo.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Perspectiva.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipo.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -234,6 +277,16 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\CMIModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+      <LastGenOutput>CMIModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CMIModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+      <LastGenOutput>CMIModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -256,6 +309,13 @@
     <Content Include="assets\scss\black-dashboard.scss" />
     <Content Include="assets\scss\black-dashboard\_buttons.scss" />
     <Content Include="assets\scss\black-dashboard\_typography.scss" />
+    <EntityDeploy Include="Models\CMIModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CMIModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CMIModel.edmx.diagram">
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -301,6 +361,41 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\CMIs\Create.cshtml" />
+    <Content Include="Views\CMIs\Delete.cshtml" />
+    <Content Include="Views\CMIs\Details.cshtml" />
+    <Content Include="Views\CMIs\Edit.cshtml" />
+    <Content Include="Views\CMIs\Index.cshtml" />
+    <Content Include="Views\Objetivos\Create.cshtml" />
+    <Content Include="Views\Objetivos\Delete.cshtml" />
+    <Content Include="Views\Objetivos\Details.cshtml" />
+    <Content Include="Views\Objetivos\Edit.cshtml" />
+    <Content Include="Views\Objetivos\Index.cshtml" />
+    <Content Include="Views\Indicadores\Create.cshtml" />
+    <Content Include="Views\Indicadores\Delete.cshtml" />
+    <Content Include="Views\Indicadores\Details.cshtml" />
+    <Content Include="Views\Indicadores\Edit.cshtml" />
+    <Content Include="Views\Indicadores\Index.cshtml" />
+    <Content Include="Views\Tipos\Create.cshtml" />
+    <Content Include="Views\Tipos\Delete.cshtml" />
+    <Content Include="Views\Tipos\Details.cshtml" />
+    <Content Include="Views\Tipos\Edit.cshtml" />
+    <Content Include="Views\Tipos\Index.cshtml" />
+    <Content Include="Views\Perspectivas\Create.cshtml" />
+    <Content Include="Views\Perspectivas\Delete.cshtml" />
+    <Content Include="Views\Perspectivas\Details.cshtml" />
+    <Content Include="Views\Perspectivas\Edit.cshtml" />
+    <Content Include="Views\Perspectivas\Index.cshtml" />
+    <Content Include="Views\Indicador_Datos\Create.cshtml" />
+    <Content Include="Views\Indicador_Datos\Delete.cshtml" />
+    <Content Include="Views\Indicador_Datos\Details.cshtml" />
+    <Content Include="Views\Indicador_Datos\Edit.cshtml" />
+    <Content Include="Views\Indicador_Datos\Index.cshtml" />
+    <Content Include="Views\Metas\Create.cshtml" />
+    <Content Include="Views\Metas\Delete.cshtml" />
+    <Content Include="Views\Metas\Details.cshtml" />
+    <Content Include="Views\Metas\Edit.cshtml" />
+    <Content Include="Views\Metas\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

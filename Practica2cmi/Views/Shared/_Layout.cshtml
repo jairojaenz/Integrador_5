@@ -53,12 +53,25 @@
                 <ul class="nav">
                     <li class="active">
                         @Html.ActionLink("Dashboard", "Index", "Home", new { area = "" }, new { @class = "nav-link" })
+
+                    </li>
+                    <li class="active">
+                        @Html.ActionLink("cmi", "Index", "CMIs", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Objetivo", "Index", "Objetivos", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Perspectiva", "Index", "Perspectivas", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Indicadore", "Index", "Indicadores", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Metas", "Index", "Metas", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Indicadores_Datos", "Index", "Indicador_Datos", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("Tipos", "Index", "Tipos", new { area = "" }, new { @class = "nav-link" })
+
+
                     </li>
                     <li>
                         <a href="./icons.html">
                             <i class="tim-icons icon-atom"></i>
                             <p>Icons</p>
                         </a>
+
                     </li>
                     <li>
                         <a href="./map.html">
@@ -401,6 +414,9 @@
                 application: "black-dashboard-free"
             });
     </script>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>
