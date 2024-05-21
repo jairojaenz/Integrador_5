@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3da0a7690dee4498857fe60890db980e" Name="Diagram1">
+        <EntityTypeShape EntityType="CMIModel.CMI" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMIModel.Indicador" Width="1.5" PointX="5.25" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMIModel.Indicador_Datos" Width="1.5" PointX="7.5" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMIModel.Meta" Width="1.5" PointX="7.5" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMIModel.Objetivo" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMIModel.Perspectiva" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CMIModel.Tipo" Width="1.5" PointX="3" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CMIModel.FK__Objetivo__CMIID__46E78A0C" ManuallyRouted="false" />
+        <AssociationConnector Association="CMIModel.FK__Indicador__Indic__44FF419A" ManuallyRouted="false" />
+        <AssociationConnector Association="CMIModel.FK__Indicador__Objet__4316F928" ManuallyRouted="false" />
+        <AssociationConnector Association="CMIModel.FK__Indicador__TipoI__440B1D61" ManuallyRouted="false" />
+        <AssociationConnector Association="CMIModel.FK__Meta__IndicadorI__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="CMIModel.FK__Objetivo__Perspe__47DBAE45" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

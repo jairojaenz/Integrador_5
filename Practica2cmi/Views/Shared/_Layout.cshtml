@@ -12,6 +12,7 @@
 
 ========================================================
 -->
+
 <!DOCTYPE html>
 <html lang="es">
 
@@ -29,7 +30,7 @@
     <!-- Nucleo Icons -->
     <link href="~/assets/css/nucleo-icons.css" rel="stylesheet" />
     <!-- CSS Files -->
-    <link href="~/assets/css/black-dashboard.css?v=1.0.0" rel="stylesheet" />
+    <link href="~/assets/css/black-dashboard.css" rel="stylesheet" />
 </head>
 
 <body class="">
@@ -51,7 +52,7 @@
                     </li>
                     <li>
                         <i class="tim-icons icon-components mt-2"></i>
-                        @Html.ActionLink("CMI", "Index", "usuarios", new { area = "" }, new { @class = "nav-link" })
+                        @Html.ActionLink("CMI", "Index", "CMIs", new { area = "" }, new { @class = "nav-link" })
                     </li>
                     <li>
                         <i class="tim-icons icon-single-copy-04 mt-2"></i>
@@ -67,7 +68,7 @@
         </div>
         <div class="main-panel">
             <!-- Navbar -->
-            <nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent">
+            <nav class="navbar navbar-expand-lg navbar-absolute">
                 <div class="container-fluid">
                     <div class="navbar-wrapper">
                         <div class="navbar-toggle d-inline">
@@ -184,8 +185,8 @@
                 <i class="fa fa-cog fa-2x"> </i>
             </a>
             <ul class="dropdown-menu">
-                <li class="header-title"> Color de Sidebar</li>
-                <li class="adjustments-line">
+                <li class="header-title">Tema de color</li>
+                @*<li class="adjustments-line">
                     <a href="javascript:void(0)" class="switch-trigger background-color">
                         <div class="badge-colors text-center">
                             <span class="badge filter badge-primary active" data-color="primary"></span>
@@ -194,18 +195,12 @@
                         </div>
                         <div class="clearfix"></div>
                     </a>
-                </li>
+                </li>*@
                 <li class="adjustments-line text-center color-change">
                     <span class="color-label">Claro</span>
                     <span class="badge light-badge mr-2"></span>
                     <span class="badge dark-badge ml-2"></span>
                     <span class="color-label">Oscuro</span>
-                </li>
-                
-                <li class="header-title">Follow us!</li>
-                <li class="button-container text-center">
-                    <button id="twitter" class="btn btn-round btn-info"><i class="fab fa-twitter"></i> &middot; 45</button>
-                    <button id="facebook" class="btn btn-round btn-info"><i class="fab fa-facebook-f"></i> &middot; 50</button>
                 </li>
             </ul>
         </div>
@@ -224,7 +219,7 @@
     <script src="../assets/js/plugins/bootstrap-notify.js"></script>
     <!-- Control Center for Black Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="../assets/js/black-dashboard.min.js?v=1.0.0"></script><!-- Black Dashboard DEMO methods, don't include it in your project! -->
-    <script src="../assets/demo/demo.js"></script>
+    <script src="~/assets/demo/demo.js"></script>
     <script>
         $(document).ready(function () {
             $().ready(function () {

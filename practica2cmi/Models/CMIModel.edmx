@@ -1,0 +1,451 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="CMIModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CMI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="Periodo" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Indicador">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+          <Property Name="ObjetivoID" Type="int" />
+          <Property Name="TipoID" Type="int" />
+        </EntityType>
+        <EntityType Name="Indicador_Datos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Valor" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Fecha" Type="date" />
+          <Property Name="IndicadorID" Type="int" />
+        </EntityType>
+        <EntityType Name="Meta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="Valor_esperado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="Fecha_limite" Type="date" />
+          <Property Name="IndicadorID" Type="int" />
+        </EntityType>
+        <EntityType Name="Objetivo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Descripcion" Type="varchar" MaxLength="255" />
+          <Property Name="CMIID" Type="int" />
+          <Property Name="PerspectivaID" Type="int" />
+        </EntityType>
+        <EntityType Name="Perspectiva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="FK__Indicador__Indic__44FF419A">
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="0..1" />
+          <End Role="Indicador_Datos" Type="Self.Indicador_Datos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Indicador_Datos">
+              <PropertyRef Name="IndicadorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Indicador__Objet__4316F928">
+          <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="0..1" />
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Objetivo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Indicador">
+              <PropertyRef Name="ObjetivoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Indicador__TipoI__440B1D61">
+          <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Indicador">
+              <PropertyRef Name="TipoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meta__IndicadorI__45F365D3">
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="0..1" />
+          <End Role="Meta" Type="Self.Meta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Meta">
+              <PropertyRef Name="IndicadorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Objetivo__CMIID__46E78A0C">
+          <End Role="CMI" Type="Self.CMI" Multiplicity="0..1" />
+          <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Objetivo">
+              <PropertyRef Name="CMIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Objetivo__Perspe__47DBAE45">
+          <End Role="Perspectiva" Type="Self.Perspectiva" Multiplicity="0..1" />
+          <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perspectiva">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Objetivo">
+              <PropertyRef Name="PerspectivaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMIModelStoreContainer">
+          <EntitySet Name="CMI" EntityType="Self.CMI" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Indicador" EntityType="Self.Indicador" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Indicador_Datos" EntityType="Self.Indicador_Datos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Meta" EntityType="Self.Meta" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Objetivo" EntityType="Self.Objetivo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Perspectiva" EntityType="Self.Perspectiva" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Tipo" EntityType="Self.Tipo" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Indicador__Indic__44FF419A" Association="Self.FK__Indicador__Indic__44FF419A">
+            <End Role="Indicador" EntitySet="Indicador" />
+            <End Role="Indicador_Datos" EntitySet="Indicador_Datos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Indicador__Objet__4316F928" Association="Self.FK__Indicador__Objet__4316F928">
+            <End Role="Objetivo" EntitySet="Objetivo" />
+            <End Role="Indicador" EntitySet="Indicador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Indicador__TipoI__440B1D61" Association="Self.FK__Indicador__TipoI__440B1D61">
+            <End Role="Tipo" EntitySet="Tipo" />
+            <End Role="Indicador" EntitySet="Indicador" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meta__IndicadorI__45F365D3" Association="Self.FK__Meta__IndicadorI__45F365D3">
+            <End Role="Indicador" EntitySet="Indicador" />
+            <End Role="Meta" EntitySet="Meta" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Objetivo__CMIID__46E78A0C" Association="Self.FK__Objetivo__CMIID__46E78A0C">
+            <End Role="CMI" EntitySet="CMI" />
+            <End Role="Objetivo" EntitySet="Objetivo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Objetivo__Perspe__47DBAE45" Association="Self.FK__Objetivo__Perspe__47DBAE45">
+            <End Role="Perspectiva" EntitySet="Perspectiva" />
+            <End Role="Objetivo" EntitySet="Objetivo" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CMIModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CMI">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Periodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Objetivoes" Relationship="Self.FK__Objetivo__CMIID__46E78A0C" FromRole="CMI" ToRole="Objetivo" />
+        </EntityType>
+        <EntityType Name="Indicador">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ObjetivoID" Type="Int32" />
+          <Property Name="TipoID" Type="Int32" />
+          <NavigationProperty Name="Indicador_Datos" Relationship="Self.FK__Indicador__Indic__44FF419A" FromRole="Indicador" ToRole="Indicador_Datos" />
+          <NavigationProperty Name="Objetivo" Relationship="Self.FK__Indicador__Objet__4316F928" FromRole="Indicador" ToRole="Objetivo" />
+          <NavigationProperty Name="Tipo" Relationship="Self.FK__Indicador__TipoI__440B1D61" FromRole="Indicador" ToRole="Tipo" />
+          <NavigationProperty Name="Metas" Relationship="Self.FK__Meta__IndicadorI__45F365D3" FromRole="Indicador" ToRole="Meta" />
+        </EntityType>
+        <EntityType Name="Indicador_Datos">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Valor" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Fecha" Type="DateTime" Precision="0" />
+          <Property Name="IndicadorID" Type="Int32" />
+          <NavigationProperty Name="Indicador" Relationship="Self.FK__Indicador__Indic__44FF419A" FromRole="Indicador_Datos" ToRole="Indicador" />
+        </EntityType>
+        <EntityType Name="Meta">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="Valor_esperado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="Fecha_limite" Type="DateTime" Precision="0" />
+          <Property Name="IndicadorID" Type="Int32" />
+          <NavigationProperty Name="Indicador" Relationship="Self.FK__Meta__IndicadorI__45F365D3" FromRole="Meta" ToRole="Indicador" />
+        </EntityType>
+        <EntityType Name="Objetivo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Descripcion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="CMIID" Type="Int32" />
+          <Property Name="PerspectivaID" Type="Int32" />
+          <NavigationProperty Name="CMI" Relationship="Self.FK__Objetivo__CMIID__46E78A0C" FromRole="Objetivo" ToRole="CMI" />
+          <NavigationProperty Name="Indicadors" Relationship="Self.FK__Indicador__Objet__4316F928" FromRole="Objetivo" ToRole="Indicador" />
+          <NavigationProperty Name="Perspectiva" Relationship="Self.FK__Objetivo__Perspe__47DBAE45" FromRole="Objetivo" ToRole="Perspectiva" />
+        </EntityType>
+        <EntityType Name="Perspectiva">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Objetivoes" Relationship="Self.FK__Objetivo__Perspe__47DBAE45" FromRole="Perspectiva" ToRole="Objetivo" />
+        </EntityType>
+        <EntityType Name="Tipo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Indicadors" Relationship="Self.FK__Indicador__TipoI__440B1D61" FromRole="Tipo" ToRole="Indicador" />
+        </EntityType>
+        <Association Name="FK__Objetivo__CMIID__46E78A0C">
+          <End Role="CMI" Type="Self.CMI" Multiplicity="0..1" />
+          <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CMI">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Objetivo">
+              <PropertyRef Name="CMIID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Indicador__Indic__44FF419A">
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="0..1" />
+          <End Role="Indicador_Datos" Type="Self.Indicador_Datos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Indicador_Datos">
+              <PropertyRef Name="IndicadorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Indicador__Objet__4316F928">
+          <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="0..1" />
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Objetivo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Indicador">
+              <PropertyRef Name="ObjetivoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Indicador__TipoI__440B1D61">
+          <End Role="Tipo" Type="Self.Tipo" Multiplicity="0..1" />
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Tipo">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Indicador">
+              <PropertyRef Name="TipoID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Meta__IndicadorI__45F365D3">
+          <End Role="Indicador" Type="Self.Indicador" Multiplicity="0..1" />
+          <End Role="Meta" Type="Self.Meta" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Indicador">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Meta">
+              <PropertyRef Name="IndicadorID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Objetivo__Perspe__47DBAE45">
+          <End Role="Perspectiva" Type="Self.Perspectiva" Multiplicity="0..1" />
+          <End Role="Objetivo" Type="Self.Objetivo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Perspectiva">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Objetivo">
+              <PropertyRef Name="PerspectivaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="CMIDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CMIs" EntityType="Self.CMI" />
+          <EntitySet Name="Indicadors" EntityType="Self.Indicador" />
+          <EntitySet Name="Indicador_Datos" EntityType="Self.Indicador_Datos" />
+          <EntitySet Name="Metas" EntityType="Self.Meta" />
+          <EntitySet Name="Objetivoes" EntityType="Self.Objetivo" />
+          <EntitySet Name="Perspectivas" EntityType="Self.Perspectiva" />
+          <EntitySet Name="Tipoes" EntityType="Self.Tipo" />
+          <AssociationSet Name="FK__Objetivo__CMIID__46E78A0C" Association="Self.FK__Objetivo__CMIID__46E78A0C">
+            <End Role="CMI" EntitySet="CMIs" />
+            <End Role="Objetivo" EntitySet="Objetivoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Indicador__Indic__44FF419A" Association="Self.FK__Indicador__Indic__44FF419A">
+            <End Role="Indicador" EntitySet="Indicadors" />
+            <End Role="Indicador_Datos" EntitySet="Indicador_Datos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Indicador__Objet__4316F928" Association="Self.FK__Indicador__Objet__4316F928">
+            <End Role="Objetivo" EntitySet="Objetivoes" />
+            <End Role="Indicador" EntitySet="Indicadors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Indicador__TipoI__440B1D61" Association="Self.FK__Indicador__TipoI__440B1D61">
+            <End Role="Tipo" EntitySet="Tipoes" />
+            <End Role="Indicador" EntitySet="Indicadors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Meta__IndicadorI__45F365D3" Association="Self.FK__Meta__IndicadorI__45F365D3">
+            <End Role="Indicador" EntitySet="Indicadors" />
+            <End Role="Meta" EntitySet="Metas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Objetivo__Perspe__47DBAE45" Association="Self.FK__Objetivo__Perspe__47DBAE45">
+            <End Role="Perspectiva" EntitySet="Perspectivas" />
+            <End Role="Objetivo" EntitySet="Objetivoes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CMIModelStoreContainer" CdmEntityContainer="CMIDBContext">
+          <EntitySetMapping Name="CMIs">
+            <EntityTypeMapping TypeName="CMIModel.CMI">
+              <MappingFragment StoreEntitySet="CMI">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Periodo" ColumnName="Periodo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indicadors">
+            <EntityTypeMapping TypeName="CMIModel.Indicador">
+              <MappingFragment StoreEntitySet="Indicador">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="ObjetivoID" ColumnName="ObjetivoID" />
+                <ScalarProperty Name="TipoID" ColumnName="TipoID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indicador_Datos">
+            <EntityTypeMapping TypeName="CMIModel.Indicador_Datos">
+              <MappingFragment StoreEntitySet="Indicador_Datos">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Valor" ColumnName="Valor" />
+                <ScalarProperty Name="Fecha" ColumnName="Fecha" />
+                <ScalarProperty Name="IndicadorID" ColumnName="IndicadorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Metas">
+            <EntityTypeMapping TypeName="CMIModel.Meta">
+              <MappingFragment StoreEntitySet="Meta">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="Valor_esperado" ColumnName="Valor_esperado" />
+                <ScalarProperty Name="Fecha_limite" ColumnName="Fecha_limite" />
+                <ScalarProperty Name="IndicadorID" ColumnName="IndicadorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Objetivoes">
+            <EntityTypeMapping TypeName="CMIModel.Objetivo">
+              <MappingFragment StoreEntitySet="Objetivo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+                <ScalarProperty Name="CMIID" ColumnName="CMIID" />
+                <ScalarProperty Name="PerspectivaID" ColumnName="PerspectivaID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Perspectivas">
+            <EntityTypeMapping TypeName="CMIModel.Perspectiva">
+              <MappingFragment StoreEntitySet="Perspectiva">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Tipoes">
+            <EntityTypeMapping TypeName="CMIModel.Tipo">
+              <MappingFragment StoreEntitySet="Tipo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

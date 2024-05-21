@@ -33,7 +33,7 @@
   --gray-dark: #32325d;
   --light: #ced4da;
   --lighter: #e9ecef;
-  --primary: #e14eca;
+  --primary: #1d8cf8;
   --secondary: #f4f5f7;
   --success: #00f2c3;
   --info: #1d8cf8;
@@ -12427,7 +12427,7 @@ button.bg-darker:focus {
 }
 
 .text-primary {
-  color: #e14eca !important;
+  color: #ffffff !important;
 }
 
 a.text-primary:hover,
@@ -12454,7 +12454,7 @@ a.text-success:focus {
 }
 
 .text-info {
-  color: #1d8cf8 !important;
+  color: #f88f06 !important;
 }
 
 a.text-info:hover,
@@ -12912,23 +12912,23 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
   border-color: #344675 !important;
 }
 
-.btn.btn-simple.active:hover,
-.btn.btn-simple.active:focus,
-.btn.btn-simple.active:active,
-.btn.btn-simple.active:not(:disabled):not(.disabled):active,
-.navbar .navbar-nav>a.btn.btn-simple.active:hover,
-.navbar .navbar-nav>a.btn.btn-simple.active:focus,
-.navbar .navbar-nav>a.btn.btn-simple.active:active,
-.navbar .navbar-nav>a.btn.btn-simple.active:not(:disabled):not(.disabled):active {
-  color: #ffffff;
-  border-color: #344675;
-  background-image: linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
-  background-color: #263148 !important;
-  box-shadow: none;
-}
+    .btn.btn-simple.active:hover,
+    .btn.btn-simple.active:focus,
+    .btn.btn-simple.active:active,
+    .btn.btn-simple.active:not(:disabled):not(.disabled):active,
+    .navbar .navbar-nav > a.btn.btn-simple.active:hover,
+    .navbar .navbar-nav > a.btn.btn-simple.active:focus,
+    .navbar .navbar-nav > a.btn.btn-simple.active:active,
+    .navbar .navbar-nav > a.btn.btn-simple.active:not(:disabled):not(.disabled):active {
+        color: #ffffff;
+        border-color: #344675;
+        background-image: linear-gradient(to bottom left, #7e0a01, #891202, #620201) !important;
+        background-image: -webkit-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+        background-image: -o-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+        background-image: -moz-linear-gradient(to bottom left, #344675, #263148, #344675) !important;
+        background-color: #263148 !important;
+        box-shadow: none;
+    }
 
 .btn.btn-link,
 .navbar .navbar-nav>a.btn.btn-link {
@@ -13103,22 +13103,22 @@ fieldset[disabled] .navbar .navbar-nav>a.btn.active {
   transition: 0.3s ease-in-out;
 }
 
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active,
-.btn-primary:active:focus,
-.btn-primary:active:hover,
-.btn-primary.active:focus,
-.btn-primary.active:hover {
-  background-color: #ba54f5 !important;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  color: #ffffff;
-  box-shadow: none;
-}
+    .btn-primary:hover,
+    .btn-primary:focus,
+    .btn-primary:active,
+    .btn-primary.active,
+    .btn-primary:active:focus,
+    .btn-primary:active:hover,
+    .btn-primary.active:focus,
+    .btn-primary.active:hover {
+        background-color: #ba54f500 !important;
+        background-image: linear-gradient(to bottom left, #080b2900, #ba54f500) !important;
+        background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+        background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+        background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+        color: #ffffff;
+        box-shadow: none;
+    }
 
 .btn-primary:active {
   box-shadow: none !important;
@@ -13160,40 +13160,40 @@ fieldset[disabled] .btn-primary.active {
   border-color: #e14eca;
 }
 
-.btn-primary.btn-simple {
-  color: #e14eca;
-  border-color: #e14eca;
-  background: transparent;
-}
+    .btn-primary.btn-simple {
+        color: #ffffff;
+        border-color: #e52003;
+        background: transparent;
+    }
 
-.btn-primary.btn-simple:hover,
-.btn-primary.btn-simple:focus,
-.btn-primary.btn-simple:active,
-.btn-primary.btn-simple:not(:disabled):not(.disabled):active {
-  color: #e14eca;
-  border-color: #e14eca;
-  background-color: transparent !important;
-  background-image: none !important;
-  box-shadow: none;
-}
+        .btn-primary.btn-simple:hover,
+        .btn-primary.btn-simple:focus,
+        .btn-primary.btn-simple:active,
+        .btn-primary.btn-simple:not(:disabled):not(.disabled):active {
+            color: #2196F3;
+            border-color: #ffffff;
+            background-color: transparent !important;
+            background-image: none !important;
+            box-shadow: none;
+        }
 
-.btn-primary.btn-simple.active {
-  border-color: #e14eca !important;
-}
+        .btn-primary.btn-simple.active {
+            border-color: #ffffff !important;
+        }
 
-.btn-primary.btn-simple.active:hover,
-.btn-primary.btn-simple.active:focus,
-.btn-primary.btn-simple.active:active,
-.btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
-  color: #ffffff;
-  border-color: #e14eca;
-  background-image: linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
-  background-color: #ba54f5 !important;
-  box-shadow: none;
-}
+            .btn-primary.btn-simple.active:hover,
+            .btn-primary.btn-simple.active:focus,
+            .btn-primary.btn-simple.active:active,
+            .btn-primary.btn-simple.active:not(:disabled):not(.disabled):active {
+                color: #ffffff;
+                border-color: #e14eca;
+                background-image: -moz-linear-gradient(to bottom left, #1d8cf8, #3358f4, #1d8cf8) !important;
+                background-image: -webkit-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+                background-image: -o-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+                background-image: -moz-linear-gradient(to bottom left, #e14eca, #ba54f5, #e14eca) !important;
+                background-color: #ba54f500 !important;
+                box-shadow: none;
+            }
 
 .btn-primary.btn-link {
   color: #e14eca;
@@ -15773,10 +15773,10 @@ img {
 }
 
 .navbar {
-  padding: 10px 30px 10px 15px;
-  width: 100%;
-  z-index: 1050;
-  background: #1a1e34;
+    padding: 10px 30px 10px 15px;
+    width: 100%;
+    z-index: 1050;
+    background: linear-gradient(-100deg, #11132b 0%, #a60404 100%);
 }
 
 .navbar .photo {
@@ -17012,7 +17012,7 @@ table.tablesorter thead tr .headerSortDown {
   right: 0;
   width: 64px;
   background: rgba(0, 0, 0, 0.3);
-  z-index: 1031;
+  z-index: 1100;
   border-radius: 8px 0 0 8px;
   text-align: center;
   top: 130px;
@@ -17337,25 +17337,25 @@ table.tablesorter thead tr .headerSortDown {
 
 .sidebar,
 .off-canvas-sidebar {
-  background: #ba54f5;
-  background: -webkit-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-  background: -o-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-  background: -moz-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-  background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-  height: calc(100vh - 90px);
-  width: 230px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-  background-size: cover;
-  background-position: center center;
-  display: block;
-  box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6);
-  margin-top: 80px;
-  margin-left: 20px;
-  border-radius: 5px;
-  transition: 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+    /*background: #ba54f5;
+    background: -webkit-linear-gradient(0deg, #1d8cf8 0%, #222a42 100%);
+    background: -o-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+    background: -moz-linear-gradient(0deg, #222a42 0%, #1d8cf8 100%);*/
+    background: linear-gradient(0deg, #11132b 0%, #a60404 100%);
+    height: calc(100vh - 90px);
+    width: 230px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    background-size: cover;
+    background-position: center center;
+    display: block;
+    box-shadow: 0px 0px 45px 0px rgba(0, 0, 0, 0.6);
+    margin-top: 80px;
+    margin-left: 20px;
+    border-radius: 5px;
+    transition: 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
 }
 
 .sidebar .sidebar-wrapper,
@@ -17805,7 +17805,6 @@ table.tablesorter thead tr .headerSortDown {
   float: right;
   width: 100%;
   min-height: 100vh;
-  border-top: 2px solid #e14eca;
   background: linear-gradient(#1e1e2f, #1e1e24);
   -webkit-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
   -moz-transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
@@ -17822,9 +17821,9 @@ table.tablesorter thead tr .headerSortDown {
   border-top: 2px solid #00f2c3;
 }
 
-.main-panel[data="primary"] {
-  border-top: 2px solid #e14eca;
-}
+    .main-panel[data="primary"] {
+        border-top: 2px solid #11132b;
+    }
 
 .main-panel>.content {
   padding: 78px 30px 30px 280px;
@@ -19932,12 +19931,12 @@ Copyright (c) 2015 Daniel Eden
 }
 
 .card {
-  background: #27293d;
-  border: 0;
-  position: relative;
-  width: 100%;
-  margin-bottom: 30px;
-  box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
+    background: #080b29;
+    border: 0;
+    position: relative;
+    width: 100%;
+    margin-bottom: 30px;
+    box-shadow: 0 1px 20px 0px rgba(0, 0, 0, 0.1);
 }
 
 .card label {

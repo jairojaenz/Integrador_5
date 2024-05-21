@@ -165,8 +165,15 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\clientesController.cs" />
+    <Compile Include="Controllers\CMIsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\IndicadorsController.cs" />
+    <Compile Include="Controllers\Indicador_DatosController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MetasController.cs" />
+    <Compile Include="Controllers\ObjetivoesController.cs" />
+    <Compile Include="Controllers\PerspectivasController.cs" />
+    <Compile Include="Controllers\TipoesController.cs" />
     <Compile Include="Controllers\userController.cs" />
     <Compile Include="Controllers\usuariosController.cs" />
     <Compile Include="Global.asax.cs">
@@ -176,8 +183,41 @@
     <Compile Include="Models\cliente.cs">
       <DependentUpon>prueba.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\CMI.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMIModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMIModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMIModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\CMIModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Indicador.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Indicador_Datos.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Meta.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Objetivo.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Perspectiva.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\prueba.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -192,6 +232,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>prueba.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Tipo.cs">
+      <DependentUpon>CMIModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\usuario.cs">
       <DependentUpon>prueba.tt</DependentUpon>
@@ -254,6 +297,16 @@
     <Content Include="assets\scss\black-dashboard.scss" />
     <Content Include="assets\scss\black-dashboard\_buttons.scss" />
     <Content Include="assets\scss\black-dashboard\_typography.scss" />
+    <Content Include="Models\CMIModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+      <LastGenOutput>CMIModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\CMIModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CMIModel.edmx</DependentUpon>
+      <LastGenOutput>CMIModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Models\prueba.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>prueba.edmx</DependentUpon>
@@ -276,6 +329,13 @@
     </EntityDeploy>
     <Content Include="Models\prueba.edmx.diagram">
       <DependentUpon>prueba.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\CMIModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CMIModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\CMIModel.edmx.diagram">
+      <DependentUpon>CMIModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-3.7.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.1.js" />
@@ -332,6 +392,41 @@
     <Content Include="Views\clientes\Details.cshtml" />
     <Content Include="Views\clientes\Edit.cshtml" />
     <Content Include="Views\clientes\Index.cshtml" />
+    <Content Include="Views\CMIs\Create.cshtml" />
+    <Content Include="Views\CMIs\Delete.cshtml" />
+    <Content Include="Views\CMIs\Details.cshtml" />
+    <Content Include="Views\CMIs\Edit.cshtml" />
+    <Content Include="Views\CMIs\Index.cshtml" />
+    <Content Include="Views\Perspectivas\Create.cshtml" />
+    <Content Include="Views\Perspectivas\Delete.cshtml" />
+    <Content Include="Views\Perspectivas\Details.cshtml" />
+    <Content Include="Views\Perspectivas\Edit.cshtml" />
+    <Content Include="Views\Perspectivas\Index.cshtml" />
+    <Content Include="Views\Objetivoes\Create.cshtml" />
+    <Content Include="Views\Objetivoes\Delete.cshtml" />
+    <Content Include="Views\Objetivoes\Details.cshtml" />
+    <Content Include="Views\Objetivoes\Edit.cshtml" />
+    <Content Include="Views\Objetivoes\Index.cshtml" />
+    <Content Include="Views\Indicadors\Create.cshtml" />
+    <Content Include="Views\Indicadors\Delete.cshtml" />
+    <Content Include="Views\Indicadors\Details.cshtml" />
+    <Content Include="Views\Indicadors\Edit.cshtml" />
+    <Content Include="Views\Indicadors\Index.cshtml" />
+    <Content Include="Views\Tipoes\Create.cshtml" />
+    <Content Include="Views\Tipoes\Delete.cshtml" />
+    <Content Include="Views\Tipoes\Details.cshtml" />
+    <Content Include="Views\Tipoes\Edit.cshtml" />
+    <Content Include="Views\Tipoes\Index.cshtml" />
+    <Content Include="Views\Metas\Create.cshtml" />
+    <Content Include="Views\Metas\Delete.cshtml" />
+    <Content Include="Views\Metas\Details.cshtml" />
+    <Content Include="Views\Metas\Edit.cshtml" />
+    <Content Include="Views\Metas\Index.cshtml" />
+    <Content Include="Views\Indicador_Datos\Create.cshtml" />
+    <Content Include="Views\Indicador_Datos\Delete.cshtml" />
+    <Content Include="Views\Indicador_Datos\Details.cshtml" />
+    <Content Include="Views\Indicador_Datos\Edit.cshtml" />
+    <Content Include="Views\Indicador_Datos\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
