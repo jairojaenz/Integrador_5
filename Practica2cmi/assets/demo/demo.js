@@ -351,11 +351,11 @@ demo = {
 
     var ctx = document.getElementById("chartLinePurple").getContext("2d");
 
-    var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
+      var gradientStroke = ctx.createLinearGradient(0, 230, 0, 50);
 
-    gradientStroke.addColorStop(1, 'rgba(72,72,176,0.2)');
-    gradientStroke.addColorStop(0.2, 'rgba(72,72,176,0.0)');
-    gradientStroke.addColorStop(0, 'rgba(119,52,169,0)'); //purple colors
+      gradientStroke.addColorStop(1, 'rgba(6,134,121,0.15)');
+      gradientStroke.addColorStop(0.4, 'rgba(66,145,121,0.0)'); //green colors
+      gradientStroke.addColorStop(0, 'rgba(66,145,121,0)'); //green colors
 
     var data = {
       labels: ['JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
@@ -363,13 +363,13 @@ demo = {
         label: "Data",
         fill: true,
         backgroundColor: gradientStroke,
-        borderColor: '#d048b6',
+          borderColor: '#00d6b4',
         borderWidth: 2,
         borderDash: [],
         borderDashOffset: 0.0,
-        pointBackgroundColor: '#d048b6',
+          pointBackgroundColor: '#00d6b4',
         pointBorderColor: 'rgba(255,255,255,0)',
-        pointHoverBackgroundColor: '#d048b6',
+          pointHoverBackgroundColor: '#00d6b4',
         pointBorderWidth: 20,
         pointHoverRadius: 4,
         pointHoverBorderWidth: 15,
@@ -381,7 +381,7 @@ demo = {
     var myChart = new Chart(ctx, {
       type: 'line',
       data: data,
-      options: gradientChartOptionsConfigurationWithTooltipPurple
+      options: gradientChartOptionsConfigurationWithTooltipGreen
     });
 
 
