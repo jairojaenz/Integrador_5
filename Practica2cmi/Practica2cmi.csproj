@@ -261,6 +261,7 @@
     <Content Include="assets\img\james.jpg" />
     <Content Include="assets\img\mike.jpg" />
     <Content Include="assets\img\now-logo.png" />
+    <Content Include="assets\img\R.png" />
     <Content Include="assets\js\black-dashboard.js" />
     <Content Include="assets\js\black-dashboard.min.js" />
     <Content Include="assets\js\core\bootstrap.min.js" />
